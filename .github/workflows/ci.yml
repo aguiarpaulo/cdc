@@ -11,9 +11,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
-          python-version: '3.11'
+          python-version: '3.11.3'
       - name: running pyproject
-        working-directory: cdc
+        working-directory: cdc/
         run: poetry run pyproject.toml
       - name: Update the project
         env:
@@ -23,5 +23,4 @@ jobs:
           USERNAME: ${{secrets.USERNAME}}
           PASSWORD: ${{secrets.PASSWORD}}
         working-directory: src/
-        run: poetry run python main.py
-        ##
+        run: pip install -r requirements.txt
