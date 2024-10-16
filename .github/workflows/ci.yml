@@ -23,4 +23,4 @@ jobs:
           USERNAME: ${{secrets.USERNAME}}
           PASSWORD: ${{secrets.PASSWORD}}
         working-directory: src
-        run: poetry run python main.py
+        run: python main.py
