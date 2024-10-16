@@ -23,6 +23,7 @@ engine = create_engine(DATABASE_URL)
 #SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 df.to_sql('organizations', con=engine, if_exists='replace', index=False)
+print("Sucessfully Done!")
 #Base = declarative_base()
 #def get_db():
 #    db = SessionLocal()
@@ -30,4 +31,3 @@ df.to_sql('organizations', con=engine, if_exists='replace', index=False)
 #        yield db
 #    finally:
 #        db.close()
-print(f"{HOSTNAME}")
