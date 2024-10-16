@@ -1,0 +1,26 @@
+name: main
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync_jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
+      - name: running pyproject
+        working-directory: cdc
+        run: poetry run pyproject.toml
+      - name: Update the project
+        env:
+          HOSTNAME: ${{HOSTNAME}}
+          PORT: ${{PORT}}
+          DATABASE: ${{DATABASE}}
+          USERNAME: ${{USERNAME}}
+          PASSWORD: ${{PASSWORD}}
+        working-directory: src/
+        run: poetry run python main.py
