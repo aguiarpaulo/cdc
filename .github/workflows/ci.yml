@@ -12,9 +12,9 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: '3.11.3'
-      - name: running pyproject
-        working-directory: cdc/
-        run: poetry run pyproject.toml
+      - name: running requirements
+        working-directory: .
+        run: pip install -r requirements.txt
       - name: Update the project
         env:
           HOSTNAME: ${{secrets.HOSTNAME}}
@@ -22,5 +22,5 @@ jobs:
           DATABASE: ${{secrets.DATABASE}}
           USERNAME: ${{secrets.USERNAME}}
           PASSWORD: ${{secrets.PASSWORD}}
-        working-directory: src/
-        run: pip install -r requirements.txt
+        working-directory: src
+        run: poetry run python main.py
