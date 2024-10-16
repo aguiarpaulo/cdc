@@ -17,11 +17,11 @@ jobs:
         run: poetry run pyproject.toml
       - name: Update the project
         env:
-          HOSTNAME: ${{HOSTNAME}}
-          PORT: ${{PORT}}
-          DATABASE: ${{DATABASE}}
-          USERNAME: ${{USERNAME}}
-          PASSWORD: ${{PASSWORD}}
+          HOSTNAME: ${{secrets.HOSTNAME}}
+          PORT: ${{secrets.PORT}}
+          DATABASE: ${{secrets.DATABASE}}
+          USERNAME: ${{secrets.USERNAME}}
+          PASSWORD: ${{secrets.PASSWORD}}
         working-directory: src/
         run: poetry run python main.py
         ##
