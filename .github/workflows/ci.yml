@@ -17,10 +17,10 @@ jobs:
         run: pip install -r requirements.txt
       - name: Update the project
         env:
-          HOSTNAME: ${{secrets.HOSTNAME}}
-          PORT: ${{secrets.PORT}}
-          DATABASE: ${{secrets.DATABASE}}
-          USERNAME: ${{secrets.USERNAME}}
-          PASSWORD: ${{secrets.PASSWORD}}
+          HOSTNAME: ${{ secrets.HOSTNAME }}
+          PORT: ${{ secrets.PORT }}
+          DATABASE: ${{ secrets.DATABASE }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         working-directory: src
         run: python main.py
