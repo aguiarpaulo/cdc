@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-data = "data/organizations.csv"
+data = "../data/organizations.csv"
 df = pd.read_csv(data)
 
 # get the variables in the .env
