@@ -1,6 +1,6 @@
 import pandas as pd
 import os
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, inspect
 from sqlalchemy.orm import declarative_base, sessionmaker
 from dotenv import load_dotenv
 
@@ -19,15 +19,14 @@ PASSWORD = os.getenv('PASSWORD')
 DATABASE_URL = f"postgresql://{USERNAME}:{PASSWORD}@{HOSTNAME}:{PORT}/{DATABASE}"
 engine = create_engine(DATABASE_URL)
 
-# Database Session, make the queries
-#SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+# Use the inspector to check if the table already exists
+inspector = inspect(engine)
+table_name = 'organizations'
 
-df.to_sql('organizations', con=engine, if_exists='replace', index=False)
-print("Sucessfully Done!")
-#Base = declarative_base()
-#def get_db():
-#    db = SessionLocal()
-#    try:
-#        yield db
-#    finally:
-#        db.close()
+# Check if the table already exists in the database
+if not inspector.has_table(table_name):
+    # If the table does not exist, create it
+    df.to_sql('organizations', con=engine, if_exists='replace', index=False)
+    print("Table created and data inserted successfully!")
+else:
+    print(f"The table '{table_name}' already exists. No action was taken.")
