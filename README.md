@@ -8,7 +8,7 @@ The cdc is a tool designed to ensure the data is pulling to database, each push 
 
 ![Dashboard](images/dash.png)
 
-https://shorturl.at/wupWv
+Dashboard link -> https://shorturl.at/wupWv
 
 
 ## Automated Testing
