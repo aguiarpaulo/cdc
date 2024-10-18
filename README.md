@@ -6,6 +6,11 @@ The cdc is a tool designed to ensure the data is pulling to database, each push 
 
 ![Git Actions](images/gitactions.png)
 
+![Dashboard](images/dash.png)
+
+https://shorturl.at/wupWv
+
+
 ## Automated Testing
 
 Automated tests have been incorporated into the `ci.yml` file and are triggered on each push on main. This ensures that future developments in the code will not affect the validation rules previously agreed upon with the business area.
